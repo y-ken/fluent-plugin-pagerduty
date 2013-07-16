@@ -30,6 +30,11 @@ $ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty
   type forward
 </source>
 
+<source>
+  type http
+  port 8888
+</source>
+
 <match notify.pagerduty>
   type pagerduty
   service_key ******************
@@ -39,7 +44,11 @@ $ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty
 #### notify example
 
 ```
-echo '{"description":"site went down!","details":{"web01":"up","db01":"down"}}' | fluent-cat notify.pagerduty
+# via forward
+$ echo '{"description":"site went down!","details":{"web01":"up","db01":"down"}}' | fluent-cat notify.pagerduty
+
+# via http
+$ curl http://localhost:8888/notify.pagerduty -F 'json={"description":"site went down!","details":{"web01":"up","db01":"down"}}'
 ```
 
 ## Contributing
