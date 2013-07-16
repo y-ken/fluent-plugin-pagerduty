@@ -7,8 +7,11 @@ Fluentd Output plugin to trigger alert notification via [PagerDuty](http://www.p
 install with `gem` or `fluent-gem` command as:
 
 ```
+# for fluentd
 $ gem install fluent-plugin-pagerduty
-$ sudo fluent-gem install fluent-plugin-pagerduty
+
+# for td-agent
+$ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty
 ```
 
 ## Usage
@@ -24,7 +27,7 @@ $ sudo fluent-gem install fluent-plugin-pagerduty
 
 ```
 <source>
-  type tcp
+  type forward
 </source>
 
 <match notify.pagerduty>
