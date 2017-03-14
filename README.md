@@ -1,6 +1,6 @@
 # fluent-plugin-pagerduty
 
-Fluentd Output plugin to trigger alert notification via [PagerDuty](http://www.pagerduty.com/).
+Fluentd Output plugin to relay alert notification from application to [PagerDuty](http://www.pagerduty.com/).
 
 ## Installation
 
@@ -11,7 +11,10 @@ install with `gem` or `fluent-gem` command as:
 $ gem install fluent-plugin-pagerduty
 
 # for td-agent
-$ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty
+$ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty -v 0.0.1
+
+# for td-agent2
+$ sudo td-agent-gem install fluent-plugin-pagerduty -v 0.0.1
 ```
 
 ## Usage
@@ -45,10 +48,10 @@ $ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty
 
 ```
 # via forward
-$ echo '{"description":"site went down!","details":{"web01":"up","db01":"down"}}' | fluent-cat notify.pagerduty
+$ echo '{"description":"Form validation has failed","details":{"name":"success","mail":"failed"}}' | fluent-cat notify.pagerduty
 
 # via http
-$ curl http://localhost:8888/notify.pagerduty -F 'json={"description":"site went down!","details":{"web01":"up","db01":"down"}}'
+$ curl http://localhost:8888/notify.pagerduty -F 'json={"description":"Form validation has failed","details":{"name":"success","mail":"failed"}}'
 ```
 
 ## Contributing
