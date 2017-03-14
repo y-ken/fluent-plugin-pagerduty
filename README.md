@@ -1,4 +1,4 @@
-# fluent-plugin-pagerduty
+# fluent-plugin-pagerduty does not work
 
 Fluentd Output plugin to relay alert notification from application to [PagerDuty](http://www.pagerduty.com/).
 
