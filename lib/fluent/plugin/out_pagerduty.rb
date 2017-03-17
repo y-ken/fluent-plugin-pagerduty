@@ -32,11 +32,11 @@ class Fluent::PagerdutyOutput < Fluent::Output
       event_type = record['event_type'] || @event_type
       description = record['description'] || record['message'] || @description
       details = record['details'] || record
+      options = {"details" => details}
       api = Pagerduty.new(service_key)
-      incident = api.trigger description, details
+      incident = api.trigger description, options
     rescue => e
       $log.error "pagerduty: request failed. ", :error_class=>e.class, :error=>e.message
     end
   end
 end
-
