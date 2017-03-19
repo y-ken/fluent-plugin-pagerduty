@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Kentaro Yoshida"]
   spec.email         = ["y.ken.studio@gmail.com"]
-  spec.description   = %q{Fluentd Input plugin to call PagerDuty API.}
-  spec.summary       = %q{Fluentd Input plugin to call PagerDuty API.}
+  spec.description   = %q{Fluentd Input plugin to replay alert notification for PagerDuty API.}
+  spec.summary       = %q{Fluentd Input plugin to replay alert notification for PagerDuty API.}
   spec.homepage      = "https://github.com/y-ken/fluent-plugin-pagerduty"
   spec.license       = "Apache License, Version 2.0"
 
