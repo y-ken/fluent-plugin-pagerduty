@@ -4,20 +4,22 @@ Fluentd Output plugin to relay alert notification from application to [PagerDuty
 
 ## Installation
 
-install with `gem` or `fluent-gem` command as:
+install with `td-agnet-gem` or `fluent-gem`, `gem` command as:
 
 ```
-# for fluentd
-$ gem install fluent-plugin-pagerduty
+# for td-agent2 (recommend)
+$ sudo td-agent-gem install fluent-plugin-pagerduty -v 0.0.1
 
 # for td-agent
 $ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-pagerduty -v 0.0.1
 
-# for td-agent2
-$ sudo td-agent-gem install fluent-plugin-pagerduty -v 0.0.1
+# for system installed fluentd
+$ gem install fluent-plugin-pagerduty
 ```
 
 ## Usage
+
+<img width="1025" alt="screenshot 2017-03-18 18 20 43" src="https://cloud.githubusercontent.com/assets/1428486/24077350/ab9f9dd4-0c07-11e7-9f9f-8cd27a451b6e.png">
 
 1. add service selecting `Service Type : Generic API system` on PagerDuty websites
 2. copy API Key from the `Services` page.
@@ -30,11 +32,11 @@ $ sudo td-agent-gem install fluent-plugin-pagerduty -v 0.0.1
 
 ```
 <source>
-  type forward
+  @type forward
 </source>
 
 <source>
-  type http
+  @type http
   port 8888
 </source>
 
