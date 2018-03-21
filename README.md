@@ -46,7 +46,7 @@ In this example, a JSON record already conforming to the PagerDuty API is proces
 
 <match notify.pagerduty>
   type pagerduty
-  service\_key ******************
+  service_key ******************
 </match>
 ```
 
@@ -76,7 +76,7 @@ In this example, a JSON record is referenced to build a PagerDuty event with an 
   type pagerduty
   service_key   ******************
   description   Alarm@${Node["Location"]}:: ${Log["Message"]}
-  incident\_key  [${tag\_parts[-1]}] ${Log["File"]}:${Log["Line"]}
+  incident_key  [${tag_parts[-1]}] ${Log["File"]}:${Log["Line"]}
 </match>
 ```
 
